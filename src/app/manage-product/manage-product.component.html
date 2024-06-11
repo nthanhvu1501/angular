@@ -1,0 +1,13 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+  <label>Code sản phẩm</label>
+  <input type="number" formControlName="productCode" class="form-control"> 
+  <span *ngIf="!productForm.get('productCode').valid&&(productForm.get('productCode').dirty||productForm.get('productCode').touched)">Bạn chưa nhập product code</span>
+  <span *ngIf="productForm.controls.productCode.error?.required">Lỗi nhập product code</span>
+  </div>
+  <div class="form-group">
+  <label>Tên sản phẩm</label>
+  <input type="text" formControlName="productName" class="form-control">
+  <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary">Thêm sản phẩm</button>
+  </div>
+  
